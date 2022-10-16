@@ -11,16 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequestMapping("/robot/sign")
+@RequestMapping("/robot/wechat")
 @RestController
 public class SignController {
 
-    @GetMapping("/check")
-    public String check(@RequestParam String signature, @RequestParam String timestamp,
-                        @RequestParam String nonce, @RequestParam String echostr) {
-
-        System.out.println(signature + " " + timestamp + " " + nonce + " " + echostr);
-
+    @GetMapping("/message")
+    public String check(@RequestParam String signature, @RequestParam String timestamp, @RequestParam String nonce, @RequestParam String echostr) {
         //1）将token、timestamp、nonce三个参数进行字典序排序
         List<String> param = new ArrayList<>(3);
         param.add(RoborConstant.TOKEN);
